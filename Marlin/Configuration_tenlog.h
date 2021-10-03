@@ -10,6 +10,7 @@
 #define MIN_SOFTWARE_ENDSTOP_X
 #define MIN_SOFTWARE_ENDSTOP_Y
 #define MIN_SOFTWARE_ENDSTOP_Z
+#define Z_MIN_ENDSTOP_INVERTING true
 #define TOOLCHANGE_NO_RETURN
 #define HOST_ACTION_COMMANDS
 // #define HOST_PROMPT_SUPPORT  
@@ -282,6 +283,8 @@
   #define TEMP_SENSOR_BED 11
 #endif
 #if ENABLED(BL_Touch)
+  #undef Z_MIN_ENDSTOP_INVERTING
+  #define Z_MIN_ENDSTOP_INVERTING false
   #define HAS_PROBE
   #define BLTOUCH
   #if ENABLED(BMGExtruder)
