@@ -24,6 +24,8 @@
 #define BED_MAXTEMP      100
 #define THERMAL_PROTECTION_BED_PERIOD        20 // Seconds
 #define WATCH_BED_TEMP_PERIOD                60 // Seconds
+#define HEATER_0_MAXTEMP 275
+#define HEATER_1_MAXTEMP 275
 #define SAFETY_Z_UNPARK 4.00 // 26/04/2021 Murdock avoid bed clips (Height to raise. Set to 0 for disable).
 #define SAFETY_Y_UNPARK 15.00 // 26/04/2021 Murdock avoid bed clips (Distance to move on Y axis for avoid bed clips).
 #define BABYSTEP_HOME_Z_OFFSET
@@ -297,6 +299,13 @@
   #define THERMAL_PROTECTION_BED_PERIOD 10
   #define WATCH_BED_TEMP_PERIOD 20
   #define TEMP_SENSOR_BED 11
+#endif
+
+#if ENABLED(All_Metal_Hotend)
+  #undef HEATER_0_MAXTEMP
+  #undef HEATER_1_MAXTEMP
+  #define HEATER_0_MAXTEMP 290
+  #define HEATER_1_MAXTEMP 290
 #endif
 
 #if ENABLED(BL_Touch)
