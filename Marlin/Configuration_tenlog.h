@@ -84,7 +84,26 @@
   #define Z_MAX_POS 350
   #define DEFAULT_DUPLICATION_X_OFFSET 250
   #define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60) }
-#endif 
+#elif ENABLED(MachineTLD2)
+  #define verS1 "Tenlog TL-D2"
+  #undef verS3
+  #define verS3 ""
+  #define X_BED_SIZE        235
+  #define Y_BED_SIZE        235
+  #define TOOL_CHANGE_AREA  0
+  #define X_MIN_POS -49
+  #define X_MAX_POS 234
+  #define X1_MIN_POS X_MIN_POS   // Set to X_MIN_POS
+  #define X1_MAX_POS X_MAX_POS  // Set a maximum so the first X-carriage can't hit the parked second X-carriage
+  #define X2_MIN_POS 10
+  #define X2_MAX_POS 282
+  #define X2_HOME_POS X2_MAX_POS // Default X2 home position. Set to X2_MAX_POS.
+  #define Y_MIN_POS 3
+  #define Y_MAX_POS Y_BED_SIZE + TOOL_CHANGE_AREA
+  #define Z_MAX_POS 260
+  #define DEFAULT_DUPLICATION_X_OFFSET 117.5
+  #define HOMING_FEEDRATE_MM_M { (5060), (5060), (4*60) }
+#endif
 #if ENABLED(BTTSKRPRO)
   #undef verS3
   #define verS3 "BTTSKRPRO"
