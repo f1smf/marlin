@@ -106,11 +106,12 @@
   #define SERIAL_PORT -1
   #define SERIAL_PORT_2 1
   #define BAUDRATE_2 115200
-  #define BAUDRATE 9600 
+  #define BAUDRATE 115200 
 #elif ENABLED(OCTOPUS)
-  #define SERIAL_PORT 1
-	#define SERIAL_PORT_2 -1
+  #define SERIAL_PORT -1 
+	#define SERIAL_PORT_2 1
   #define SERIAL_PORT_3 2
+  #define BAUDRATE 115200 
   #define BAUDRATE_2 115200
   #define BAUDRATE_3 115200
 #else
@@ -1434,7 +1435,7 @@
  */
 #define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-  //#define FIL_RUNOUT_ENABLED_DEFAULT false // Enable the sensor on startup. Override with M412 followed by M500.
+  #define FIL_RUNOUT_ENABLED_DEFAULT false // Enable the sensor on startup. Override with M412 followed by M500.
   //#define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
   //#define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
@@ -1878,7 +1879,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  //#define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
   #define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
